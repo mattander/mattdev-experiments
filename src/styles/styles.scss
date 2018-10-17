@@ -1,0 +1,161 @@
+//Main SASS file for simple webpage/site/webapp setup
+
+@import 'animations';
+
+//Breakpoints for the project
+
+//Mobile view
+$screen-sm-min: 414px;
+
+// Desktop view (portrait view)
+$screen-md-min: 899px;
+
+
+//Padding sizes for screens
+$screen-sm-padding: 15px 6vw;
+$screen-md-padding: 25px 10vw;
+
+// Small devices
+@mixin sm {
+   @media (min-width: #{$screen-sm-min}) {
+       @content;
+   }
+}
+
+// Medium devices
+@mixin md {
+   @media (min-width: #{$screen-md-min}) {
+       @content;
+   }
+}
+
+//Mobile viewport only
+@mixin mobile-only {
+  @media (max-width: #{$screen-md-min}) {
+      @content;
+  }
+}
+
+/*Colours*/
+$blue-section-1: #0062ff;
+$blue-section-2: rgb(55,131,253);
+$blue-section-3: rgb(93,155,255);
+$blue-section-4: rgb(132,179,255);
+$button-primary-default: rgb(0,119,200);
+$button-primary-hover: rgb(0,98,155);
+$button-primary-active: rgb(0,98,155);
+$bg-colour-default: #eaeaea;
+$bg-colour-alt-1: #e0e0e0;
+$bg-colour-alt-2: #d3d3d3;
+$bg-colour-dark: #a0a0a0;
+$bg-colour-darker: #999999;
+$bg-colour-darkest: #474747;
+$bg-colour-verydarkest: #333333;
+
+* {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0 5%;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2.865rem;
+  margin: 0 0 1.5rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+  margin: 0 0 1.5rem;
+}
+
+p, div {
+  font-size: 1.6rem;
+}
+
+.container {
+  background-color: $bg-colour-default;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  height: 100vh;
+}
+
+.sidebar {
+  padding: 2.5rem 3.5rem;
+  flex: 1 2 25%;
+  background-color: $bg-colour-verydarkest;
+  color: $bg-colour-default;
+}
+
+.main-content {
+  padding: 2.5rem 3.5rem;
+  flex: 3 1 75%;
+  background-color: $bg-colour-darkest;
+}
+
+.header__code-content {
+  margin: 0 1.5rem;
+  color: green;
+  font-weight: 600;
+
+  .header__content--text-light {
+    font-weight: 400;
+    color: $bg-colour-default;
+  }
+}
+
+.cursor {
+  display: inline-block;
+  background-color: $bg-colour-darker;
+  height: 1.6rem;
+  width: .75rem;
+  margin: 0 0 -2px 1.25rem;
+  animation: blink 1.5s steps(2,start) infinite;
+  animation-fill-mode: forwards;
+}
+
+.nav {
+  list-style: none;
+  display: flex;
+  flex-flow: column nowrap;
+
+  li {
+    margin: .5rem 0;
+    display: flex;
+    align-items: center;
+
+    a {
+      color: $bg-colour-default;
+      text-decoration: none;
+      font-family: monospace;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        background-image: url('/images/file-icon.svg');
+        background-repeat: no-repeat;
+        height: 3rem;
+        width: 3rem;
+        position: relative;
+        left: 0;
+        top: .865rem;
+        margin-right: 1rem;
+      }
+
+      &:hover {
+        text-decoration: underline dashed;
+      }
+    }
+  }
+}
